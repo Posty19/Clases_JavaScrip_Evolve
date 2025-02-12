@@ -111,6 +111,7 @@ console.log(`el array de numeros * indice es: ${nums10Multi}`);
 
 const names11 = ['Tom', 'Alexander', 'Bob', 'Christina'];
 
+//Ordena los nombres de más corto a más largo utilizando sort y length.
 
 
 
