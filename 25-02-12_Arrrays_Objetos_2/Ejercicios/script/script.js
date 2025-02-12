@@ -109,11 +109,27 @@ console.log(`el array de numeros * indice es: ${nums10Multi}`);
 
 //11. Ordenar Nombres por Longitud
 
-const names11 = ['Tom', 'Alexander', 'Bob', 'Christina'];
+const names11 = ['Pin', 'Coche', 'Canarias', 'Astronauta'];
 
+let maxLength=0;    //Number.MIN_VALUE
+let minLength=9999; //Number.MAX_VALUE
+const names11Ordered = [];
 //Ordena los nombres de más corto a más largo utilizando sort y length.
+names11.sort();
 
-
+names11.forEach(el => {
+    if(el.length>=maxLength){
+        names11Ordered.push(el);
+        maxLength=el.length;
+    }else if(el.length<=minLength){
+        names11Ordered.unshift(el);
+        minLength=el.length;
+    }
+});
+console.log("Resultado EJ11");
+console.log(`los nombres ordenados: ${names11}`);
+console.log(`los nombres alineados de menor a mayor son:`);
+console.log(names11Ordered);
 
 //12. Manipular Lista de Tareas
 
