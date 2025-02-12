@@ -7,22 +7,27 @@ numeros.forEach((el, key, arr) => {
   console.log(`elemento ${el} con clave ${key} del array ${arr}`);
 });
 
-// MAP
+// MAP crea nuevo array con alterado con condiciones
 
 const pares = numeros.map((el) => {
       return el*2;
 });
 console.log(pares);
 
-// FILTER
+// FILTER crea nuevo array filtrado
 
 const pares2 = numeros.filter((el) => el % 2 === 0);
 console.log(pares2);
 
-// JOIN
+// JOIN concatena elementos en un string
 const cadena = numeros.join();
 console.log(cadena);
 
-// TOSTRING
+// TOSTRING convierte a string
 const cadena2 = numeros.toString();
 console.log(cadena2);
+
+// FIND busca con condiciones
+const words = ['cat', 'elephant', 'dog', 'giraffe', 'lion'];
+
+const word5Length = words.find( el => el.length>4);
