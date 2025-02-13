@@ -3,9 +3,11 @@
 const numbers = [3, 7, 12, 5, 9, 20, 15];
 
 const duplicados = numbers.map((el) => el * 2);
+const sup20 = duplicados.filter((el) => el % 2 === 0 && el > 20);
 console.log("Resultado EJ1");
 console.log(`array de numeros: ${numbers}`);
 console.log(`array duplicados: ${duplicados}`);
+console.log(`array pares mayores que 20: ${sup20}`);
 
 //2. Ordenar y Eliminar Elementos
 
@@ -59,7 +61,9 @@ console.log(`La inclusion de green en el array es: ${green}`);
 
 //7. Filtrar Números Primos
 
-const numbers2 = [2, 4, 5, 6, 7, 8, 9, 11, 13, 23, 19, 29, 97,101,103,110,111,471];
+const numbers2 = [
+  2, 4, 5, 6, 7, 8, 9, 11, 13, 23, 19, 29, 97, 101, 103, 110, 111, 471,
+];
 const numPrimos = numbers2.filter((el) => {
   if (el === 2 || el === 3 || el === 5 || el === 7 || el === 11 || el === 13) {
     return el;
@@ -74,24 +78,29 @@ console.log(`Los numeros primos del array son: ${numPrimos}`);
 
 const nums = [10, 20, 30, 40, 50];
 
-const numsStr = nums.map(el => {
-    return el.toString();
+const numsStr = nums.map((el) => {
+  return el.toString();
 });
 console.log("Resultado EJ8");
-console.log('Los numeros echos cadena:');
+console.log("Los numeros echos cadena:");
 console.log(numsStr);
 
 // 9. Contar Frases Largas
 
-const sentences = ['Hello world', 'JavaScript is fun', 'I love coding', 'Keep it simple'];
+const sentences = [
+  "Hello world",
+  "JavaScript is fun",
+  "I love coding",
+  "Keep it simple",
+];
 
-const longSentences = sentences.filter(el=>{
-    if(el.length>12){
-        return el;
-    }
-})
+const longSentences = sentences.filter((el) => {
+  if (el.length > 12) {
+    return el;
+  }
+});
 console.log("Resultado EJ9");
-console.log('Las frases de mas de 12 caracteres son:');
+console.log("Las frases de mas de 12 caracteres son:");
 console.log(longSentences);
 console.log(`Con un total de: ${longSentences.length} frases`);
 
@@ -100,31 +109,31 @@ console.log(`Con un total de: ${longSentences.length} frases`);
 const nums10 = [1, 2, 3, 4, 5];
 
 nums10.reverse();
-const nums10Multi = nums10.map((el,index)=>{
-    return el*index;
-})
+const nums10Multi = nums10.map((el, index) => {
+  return el * index;
+});
 console.log("Resultado EJ10");
 console.log(`el array de numeros invertido es: ${nums10}`);
 console.log(`el array de numeros * indice es: ${nums10Multi}`);
 
 //11. Ordenar Nombres por Longitud
 
-const names11 = ['Pin', 'Coche', 'Canarias', 'Astronauta'];
+const names11 = ["Pin", "Coche", "Canarias", "Astronauta"];
 
-let maxLength=0;    //Number.MIN_VALUE
-let minLength=9999; //Number.MAX_VALUE
+let maxLength = 0; //Number.MIN_VALUE
+let minLength = 9999; //Number.MAX_VALUE
 const names11Ordered = [];
 //Ordena los nombres de más corto a más largo utilizando sort y length.
 names11.sort();
 
-names11.forEach(el => {
-    if(el.length>=maxLength){
-        names11Ordered.push(el);
-        maxLength=el.length;
-    }else if(el.length<=minLength){
-        names11Ordered.unshift(el);
-        minLength=el.length;
-    }
+names11.forEach((el) => {
+  if (el.length >= maxLength) {
+    names11Ordered.push(el);
+    maxLength = el.length;
+  } else if (el.length <= minLength) {
+    names11Ordered.unshift(el);
+    minLength = el.length;
+  }
 });
 console.log("Resultado EJ11");
 console.log(`los nombres ordenados: ${names11}`);
@@ -133,10 +142,10 @@ console.log(names11Ordered);
 
 //12. Manipular Lista de Tareas
 
-const tasks = ['Wash dishes', 'Do laundry', 'Clean room'];
+const tasks = ["Wash dishes", "Do laundry", "Clean room"];
 
-tasks.push('Buy groceries');
-tasks.unshift('Feed the cat');
+tasks.push("Buy groceries");
+tasks.unshift("Feed the cat");
 
 console.log("Resultado EJ12");
 console.log(`array de tareas completo: ${tasks}`);
@@ -146,13 +155,13 @@ console.log(`array de tareas reducido: ${tasks}`);
 
 //13. Filtrar y Unir Palabras
 
-const words13 = ['apple', 'banana', 'avocado', 'cherry', 'apricot'];
+const words13 = ["apple", "banana", "avocado", "cherry", "apricot"];
 
-const words13Filtered = words13.filter(el =>{
-    if(el[0] === 'a') {
-        return el;
-    }
-})
+const words13Filtered = words13.filter((el) => {
+  if (el[0] === "a") {
+    return el;
+  }
+});
 const words13Joined = words13Filtered.join();
 console.log("Resultado EJ13");
 console.log(`Palabras que comienzan por a:`);
@@ -170,11 +179,16 @@ console.log(`El segundo numero mallor es: ${numbers14[numbers14.length - 1]}`);
 
 //15. Verificar Inclusión de Subcadenas en Frases
 
-const phrases = ['I love JavaScript', 'Coding is great', 'Java is cool', 'I prefer Python'];
+const phrases = [
+  "I love JavaScript",
+  "Coding is great",
+  "Java is cool",
+  "I prefer Python",
+];
 
-const phrasesBool = phrases.map( el =>{
-    return el.includes('Java');
-})
+const phrasesBool = phrases.map((el) => {
+  return el.includes("Java");
+});
 console.log("Resultado EJ15");
 console.log(`Array de frases:`);
 console.log(phrases);
