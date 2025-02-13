@@ -61,11 +61,14 @@ console.log(`La inclusion de green en el array es: ${green}`);
 
 //7. Filtrar Números Primos
 
+
+// FALLA CON LAS POTENCIAS DE PRIMOS
 const numbers2 = [
-  2, 4, 5, 6, 7, 8, 9, 11, 13, 23, 19, 29, 97, 101, 103, 110, 111, 471,
+  2, 4, 5, 6, 7, 8, 9, 11, 13, 23, 19, 29, 97, 101, 103, 110, 111, 471, 121,
+  169,
 ];
 const numPrimos = numbers2.filter((el) => {
-  if (el === 1 ||el === 2 || el === 3 || el === 5 || el === 7) {
+  if (el === 1 || el === 2 || el === 3 || el === 5 || el === 7) {
     return el;
   } else if (!(el % 2 === 0 || el % 3 === 0 || el % 5 === 0 || el % 7 === 0)) {
     return el;
