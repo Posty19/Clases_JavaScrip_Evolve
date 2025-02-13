@@ -27,7 +27,8 @@ console.log(cadena);
 const cadena2 = numeros.toString();
 console.log(cadena2);
 
-// FIND busca con condiciones
+// FIND busca con condiciones retorna el 1er wlwmwnto
 const words = ['cat', 'elephant', 'dog', 'giraffe', 'lion'];
 
 const word5Length = words.find( el => el.length>4);
+console.log(word5Length);
