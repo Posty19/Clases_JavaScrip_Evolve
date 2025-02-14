@@ -313,7 +313,7 @@ const sortByPrice = (carrito) => {
 
 console.log("*************************** Ej8 ***************************");
 
-addProd('teclado',25);
+addProd("teclado", 25);
 console.log(carrito);
 
 dellLastProd(carrito);
@@ -322,3 +322,38 @@ console.log(carrito);
 console.log(`total del carrito: ${computePrice(carrito)}`);
 
 console.log(sortByPrice(carrito));
+
+//+++++++++++++++++++++++++++++++++++++++++++9️⃣ Filtrado de Libros por Autor y Año
+
+const libros = [
+  { titulo: "JavaScript Avanzado", autor: "Juan Pérez", año: 2019 },
+  { titulo: "JavaScript Básico", autor: "Carlos López", año: 2008 },
+];
+
+// libros publicados despues de 2010
+const booksPost2010 = (books) => {
+  const filtrados = books.filter((el) => el.año > 2010);
+  return filtrados;
+};
+
+// primer libro de un autor especifico
+const bookAuthor = (books,author) => {
+  return books.find((el) => el.autor === author);
+};
+
+//ordenar libros por año de publicacion
+const sortByyear = (books) => {
+  const orderedBooks = books.sort((a, b) => {
+    return b.precio - a.precio;
+  });
+  return orderedBooks;
+};
+
+console.log("*************************** Ej9 ***************************");
+console.log(`Libros de despues del 2010: `);
+console.log(booksPost2010(libros));
+console.log(`Primer libros del autor Carlos López:`);
+console.log(bookAuthor(libros,'Carlos López'));
+console.log(`Libros ordenados por año: `);
+console.log(sortByyear(libros));
+
