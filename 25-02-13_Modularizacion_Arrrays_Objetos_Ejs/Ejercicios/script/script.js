@@ -256,3 +256,17 @@ console.log('Temperaturas ºC:');
 console.log(temperaturas);
 console.log('Temperaturas ºF:');
 console.log(tempCtoF(temperaturas));
+
+//+++++++++++++++++++++++++++++++++++++++++++7️⃣ Combinar Listas de Contactos (Operador Spread)
+
+const contactos1 = ['Juan', 'Carlos', 'Ana'];
+const contactos2 = ['Ana', 'Pedro', 'Luis'];
+
+// unir en un set
+//ordenar alfabeticamente
+const contactos = [...contactos1,...contactos2];
+contactos.sort();
+const setContactos = new Set(contactos);
+console.log("*************************** Ej7 ***************************");
+console.log('set de contactos ordenado');
+console.log(setContactos);
