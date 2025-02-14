@@ -7,35 +7,73 @@ const inventario = [
 ];
 
 //crear producto
-const addProduct = (name,quantity,price)=>{
-    const product = {
-        nombre:name,
-        cantidad:quantity,
-        precio:price
-    }
-    inventario.push(product);
-}
+const addProduct = (name, quantity, price) => {
+  const product = {
+    nombre: name,
+    cantidad: quantity,
+    precio: price,
+  };
+  inventario.push(product);
+};
 
 //eliminar producto
-const delProduct = ()=>{
+const delProduct = () => {
   inventario.pop();
-}
+};
 
 //filtrar producto por precio mayor al dado
-const  selectProductByPrice= (price)=>{
-  const filtrados = inventario.filter(el => el.precio>price);
+const selectProductByPrice = (price) => {
+  const filtrados = inventario.filter((el) => el.precio > price);
   return filtrados;
-}
+};
 //ordenar productos por cantidad mayor a menor
-const orderProductQuantity = ()=>{
-  inventario.sort((a,b)=>{
+const orderProductQuantity = () => {
+  inventario.sort((a, b) => {
     return b.cantidad - a.cantidad;
-  })
-}
-addProduct('pantalla',45,124);
+  });
+};
+console.log("*************************** Ej1 ***************************");
+addProduct("pantalla", 45, 124);
 console.log(selectProductByPrice(50));
-orderProductQuantity()
+orderProductQuantity();
 console.log(inventario);
 
 //2️⃣ Análisis de Notas de Estudiantes
 
+const estudiantes = [
+  { nombre: "Juan", nota: 8 },
+  { nombre: "Ana", nota: 5 },
+  { nombre: "Carlos", nota: 7 },
+];
+
+//filtrar por nota >= 6
+const filtrarNota = (alumnos) => {
+  return alumnos.filter((el) => el.nota > 6);
+};
+//calcular nota media
+const notaMedia = (alumnos) => {
+  console.log(typeof alumnos);
+
+  let totAlumnos = alumnos.length;
+  let media = 0;
+  alumnos.forEach((el) => {
+    media += el.nota;
+  });
+
+  media = media / totAlumnos;
+  return media;
+};
+
+//ordenar estudiantes por nota de mayor a menor
+
+const orderAlumnosNota = () => {
+  estudiantes.sort((a, b) => {
+    return b.nota - a.nota;
+  });
+};
+
+console.log("*************************** Ej2 ***************************");
+console.log(filtrarNota(estudiantes));
+console.log(notaMedia(estudiantes));
+orderAlumnosNota();
+console.log(estudiantes);
