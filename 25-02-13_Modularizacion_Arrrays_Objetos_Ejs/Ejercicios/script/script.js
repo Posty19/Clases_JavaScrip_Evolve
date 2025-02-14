@@ -357,3 +357,47 @@ console.log(bookAuthor(libros,'Carlos López'));
 console.log(`Libros ordenados por año: `);
 console.log(sortByyear(libros));
 
+//+++++++++++++++++++++++++++++++++++++++++++🔟 Gestión de Inscripciones a un Evento
+
+let participantes = ['Juan', 'Ana', 'Pedro', 'Luis'];
+
+//añadir participantes
+
+const addParticipant = name =>{
+  participantes.push(name);
+}
+
+//Eliminar un participante por el nombre
+
+const dellParticipant = (participants,name) =>{
+  let participants2 = []; 
+  participants.forEach(el => {
+    el!==name?participants2.push(el):'';
+  });
+  participantes=participants2;
+  return participants2;
+}
+
+//filtrar participantes con letra especifica
+
+const letterParticipant = (participants,letter) =>{
+  return participants.filter(el=>el.includes(letter));
+}
+
+//convertir lista en cadena join
+
+const joinedParticipant = (participants,char) =>{
+  return participants.join(char);
+}
+
+console.log("*************************** Ej10 ***************************");
+
+addParticipant('Josete');
+console.log(participantes);
+
+dellParticipant(participantes,'Ana');
+console.log(participantes);
+
+console.log(letterParticipant(participantes,'e'));
+
+console.log(joinedParticipant(participantes,'-'));
