@@ -479,3 +479,24 @@ console.log(alumnos);
 
 console.log(`alumnos mayores de edad:`);
 console.log(oldStudents(alumnos));
+
+//+++++++++++++++++++++++++++++++++++++++++++1️⃣3️⃣ Análisis de Palabras en un Texto
+
+const texto = 'El sol me acaricia con sus rallos';
+
+//testo a array
+const toArray = frase => texto.split(' ');
+const arrText = toArray(texto);
+
+//filtra palabras de mas de 5 caracteres
+
+const palabras5Char = arr => arr.filter(el=>el.length>5);
+
+//ordena port longitud;
+
+const sortStrArr = strArr => strArr.sort((a,b)=>b.length-a.length);
+
+console.log("*************************** Ej13 ***************************");
+console.log(arrText);
+console.log(palabras5Char(arrText));
+console.log(sortStrArr(arrText));
