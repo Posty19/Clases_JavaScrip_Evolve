@@ -120,19 +120,19 @@ const tareas = [
 ];
 
 //Añadir tareas
-const addTask = (task, complete) => {
+const addTask = (taskName, status) => {
   const taskCopleted = {
-    tarea: task,
-    completada: complete,
+    tarea: taskName,
+    completada: status,
   };
   tareas.push(taskCopleted);
 };
 
 //Marcar tareas como completadas
-const completeTask = (tasks, taskName) => {
+const completeTask = (tasks, taskName, status) => {
   tasks.forEach((el) => {
     if (el.tarea === taskName) {
-      el.completada = true;
+      el.completada = status;
     }
   });
   return tasks;
@@ -165,7 +165,7 @@ const pendingTask = (tasks) => {
 
 console.log("*************************** Ej4 ***************************");
 addTask("Limpiar baños", false);
-completeTask(tareas, "Comprar leche");
+completeTask(tareas, "Comprar leche", true);
 
 console.log("tareas completadas");
 console.log(completedTaskFilter(tareas, true));
