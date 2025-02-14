@@ -337,7 +337,7 @@ const booksPost2010 = (books) => {
 };
 
 // primer libro de un autor especifico
-const bookAuthor = (books,author) => {
+const bookAuthor = (books, author) => {
   return books.find((el) => el.autor === author);
 };
 
@@ -353,51 +353,91 @@ console.log("*************************** Ej9 ***************************");
 console.log(`Libros de despues del 2010: `);
 console.log(booksPost2010(libros));
 console.log(`Primer libros del autor Carlos López:`);
-console.log(bookAuthor(libros,'Carlos López'));
+console.log(bookAuthor(libros, "Carlos López"));
 console.log(`Libros ordenados por año: `);
 console.log(sortByyear(libros));
 
 //+++++++++++++++++++++++++++++++++++++++++++🔟 Gestión de Inscripciones a un Evento
 
-let participantes = ['Juan', 'Ana', 'Pedro', 'Luis'];
+let participantes = ["Juan", "Ana", "Pedro", "Luis"];
 
 //añadir participantes
 
-const addParticipant = name =>{
+const addParticipant = (name) => {
   participantes.push(name);
-}
+};
 
 //Eliminar un participante por el nombre
 
-const dellParticipant = (participants,name) =>{
-  let participants2 = []; 
-  participants.forEach(el => {
-    el!==name?participants2.push(el):'';
+const dellParticipant = (participants, name) => {
+  let participants2 = [];
+  participants.forEach((el) => {
+    el !== name ? participants2.push(el) : "";
   });
-  participantes=participants2;
+  participantes = participants2;
   return participants2;
-}
+};
 
 //filtrar participantes con letra especifica
 
-const letterParticipant = (participants,letter) =>{
-  return participants.filter(el=>el.includes(letter));
-}
+const letterParticipant = (participants, letter) => {
+  return participants.filter((el) => el.includes(letter));
+};
 
 //convertir lista en cadena join
 
-const joinedParticipant = (participants,char) =>{
+const joinedParticipant = (participants, char) => {
   return participants.join(char);
-}
+};
 
 console.log("*************************** Ej10 ***************************");
 
-addParticipant('Josete');
+addParticipant("Josete");
 console.log(participantes);
 
-dellParticipant(participantes,'Ana');
+dellParticipant(participantes, "Ana");
 console.log(participantes);
 
-console.log(letterParticipant(participantes,'e'));
+console.log(letterParticipant(participantes, "e"));
 
-console.log(joinedParticipant(participantes,'-'));
+console.log(joinedParticipant(participantes, "-"));
+
+//+++++++++++++++++++++++++++++++++++++++++++1️⃣1️⃣ Estadísticas de Redes Sociales
+
+const publicaciones = [
+  { likes: 50, comentarios: 10 },
+  { likes: 200, comentarios: 30 },
+  { likes: 120, comentarios: 20 },
+];
+
+//calcular total de likes con reduce
+
+const initialValue = 0;
+const calcLikes = (posts) => {
+  const totalLikes = posts.reduce(
+    (tot, val) => (tot += val.likes),
+    initialValue
+  );
+  return totalLikes;
+};
+
+//filtrar publicaciones con mas de 100likes
+
+const postMostLiked = (posts) => {
+  const filtrados = posts.filter((el) => el.likes > 100);
+  return filtrados;
+};
+
+//ordenar por popularidad (likes)
+
+const sortMostLiked = (posts) => {
+  const ordenados = posts.sort((a, b) => b.likes - a.likes);
+  return ordenados;
+};
+
+console.log("*************************** Ej10 ***************************");
+console.log(`total de likes es:${calcLikes(publicaciones)}`);
+console.log(`posts con mas de 100 likes:`);
+console.log(postMostLiked(publicaciones));
+console.log(`posts ordenados por likes es:`);
+console.log(sortMostLiked(publicaciones));
