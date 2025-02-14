@@ -180,24 +180,23 @@ console.log(tareas);
 const nombres = ["Ana", "Juan", "Pedro", "Andrés"];
 
 //pasar todo a mayusculas
-const mayusNames = (names)=>{
-  const upperNames = names.map(el => {
+const mayusNames = (names) => {
+  const upperNames = names.map((el) => {
     return el.toUpperCase();
   });
   return upperNames;
-}
+};
 
 //filtrar nombres que comienzen por a
 
-const aNames = (names)=>{
-  const upperNames = names.filter(el => {
-    if (el[0] === 'a'||el[0] === 'A'){
+const aNames = (names) => {
+  const upperNames = names.filter((el) => {
+    if (el[0] === "a" || el[0] === "A") {
       return el;
     }
-      
   });
   return upperNames;
-}
+};
 
 //ordenar alfabeticamente
 nombres.sort();
@@ -208,65 +207,118 @@ console.log(aNames(nombres));
 
 //+++++++++++++++++++++++++++++++++++++++++++6️⃣ Análisis de Datos Climáticos
 
-const temperaturas = [22, 28, 18, 15, 32, 25,100,-20,-34,-40];
+const temperaturas = [22, 28, 18, 15, 32, 25, 100, -20, -34, -40];
 
 //mayor y menor temperatura
 
-const temExtremas = (temps)=>{
+const temExtremas = (temps) => {
   let minTemp = Number.MAX_VALUE;
   let maxTemp = Number.MIN_VALUE;
-  temps.forEach(el => {
-      if(el>maxTemp){
-        maxTemp=el;
-      }else if(el<minTemp){
-        minTemp = el;
-      }
+  temps.forEach((el) => {
+    if (el > maxTemp) {
+      maxTemp = el;
+    } else if (el < minTemp) {
+      minTemp = el;
+    }
   });
-  return tempsMaxMin={maxima:maxTemp, minima:minTemp};
-}
+  return (tempsMaxMin = { maxima: maxTemp, minima: minTemp });
+};
 
 //temperatturas por encima de la media
-const temMedia = (temps)=>{
-  let total=0;
-  temps.forEach(el => {
-    total +=el;
+const temMedia = (temps) => {
+  let total = 0;
+  temps.forEach((el) => {
+    total += el;
   });
-  return total/temps.length;
-}
+  return total / temps.length;
+};
 
-const temSupMedia = (temps)=>{
+const temSupMedia = (temps) => {
   let media = temMedia(temps);
   console.log(`la temperatura media es: ${media}`);
-  const tSupMedia = temps.filter( el => el>media);
+  const tSupMedia = temps.filter((el) => el > media);
   return tSupMedia;
-}
+};
 
 //convertir de Celsius a Fahrenheit
 //(temp × 9 / 5) + 3
-const tempCtoF = (temps)=>{
-  const fTemps= temps.map(el => (el*9/5)+32);
+const tempCtoF = (temps) => {
+  const fTemps = temps.map((el) => (el * 9) / 5 + 32);
   return fTemps;
-}
+};
 
 console.log("*************************** Ej6 ***************************");
 console.log(temExtremas(temperaturas));
-console.log('Temperaturas superiores a la media:');
+console.log("Temperaturas superiores a la media:");
 console.log(temSupMedia(temperaturas));
-console.log('Temperaturas ºC:');
+console.log("Temperaturas ºC:");
 console.log(temperaturas);
-console.log('Temperaturas ºF:');
+console.log("Temperaturas ºF:");
 console.log(tempCtoF(temperaturas));
 
 //+++++++++++++++++++++++++++++++++++++++++++7️⃣ Combinar Listas de Contactos (Operador Spread)
 
-const contactos1 = ['Juan', 'Carlos', 'Ana'];
-const contactos2 = ['Ana', 'Pedro', 'Luis'];
+const contactos1 = ["Juan", "Carlos", "Ana"];
+const contactos2 = ["Ana", "Pedro", "Luis"];
 
 // unir en un set
 //ordenar alfabeticamente
-const contactos = [...contactos1,...contactos2];
+const contactos = [...contactos1, ...contactos2];
 contactos.sort();
 const setContactos = new Set(contactos);
 console.log("*************************** Ej7 ***************************");
-console.log('set de contactos ordenado');
+console.log("set de contactos ordenado");
 console.log(setContactos);
+
+//+++++++++++++++++++++++++++++++++++++++++++8️⃣ Gestión de Carrito de Compras
+
+const carrito = [
+  { producto: "Ratón", precio: 20 },
+  { producto: "Laptop", precio: 800 },
+];
+
+//añadir producto
+const addProd = (name, price) => {
+  const product = {
+    nombre: name,
+    precio: price,
+  };
+  carrito.push(product);
+};
+
+//eliminar ultimo producto
+
+const dellLastProd = (carrito) => {
+  carrito.pop();
+};
+
+//calcular precio del carirrito
+
+const computePrice = (carrito) => {
+  let totalprice = 0;
+  carrito.forEach((el) => {
+    totalprice += el.precio;
+  });
+  return totalprice;
+};
+
+//ordenar por precio
+
+const sortByPrice = (carrito) => {
+  const orderedCaddy = carrito.sort((a, b) => {
+    return b.precio - a.precio;
+  });
+  return orderedCaddy;
+};
+
+console.log("*************************** Ej8 ***************************");
+
+addProd('teclado',25);
+console.log(carrito);
+
+dellLastProd(carrito);
+console.log(carrito);
+
+console.log(`total del carrito: ${computePrice(carrito)}`);
+
+console.log(sortByPrice(carrito));
