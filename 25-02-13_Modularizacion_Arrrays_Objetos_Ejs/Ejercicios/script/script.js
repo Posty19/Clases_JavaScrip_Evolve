@@ -205,3 +205,54 @@ nombres.sort();
 console.log("*************************** Ej5 ***************************");
 console.log(mayusNames(nombres));
 console.log(aNames(nombres));
+
+//+++++++++++++++++++++++++++++++++++++++++++6️⃣ Análisis de Datos Climáticos
+
+const temperaturas = [22, 28, 18, 15, 32, 25,100,-20,-34,-40];
+
+//mayor y menor temperatura
+
+const temExtremas = (temps)=>{
+  let minTemp = Number.MAX_VALUE;
+  let maxTemp = Number.MIN_VALUE;
+  temps.forEach(el => {
+      if(el>maxTemp){
+        maxTemp=el;
+      }else if(el<minTemp){
+        minTemp = el;
+      }
+  });
+  return tempsMaxMin={maxima:maxTemp, minima:minTemp};
+}
+
+//temperatturas por encima de la media
+const temMedia = (temps)=>{
+  let total=0;
+  temps.forEach(el => {
+    total +=el;
+  });
+  return total/temps.length;
+}
+
+const temSupMedia = (temps)=>{
+  let media = temMedia(temps);
+  console.log(`la temperatura media es: ${media}`);
+  const tSupMedia = temps.filter( el => el>media);
+  return tSupMedia;
+}
+
+//convertir de Celsius a Fahrenheit
+//(temp × 9 / 5) + 3
+const tempCtoF = (temps)=>{
+  const fTemps= temps.map(el => (el*9/5)+32);
+  return fTemps;
+}
+
+console.log("*************************** Ej6 ***************************");
+console.log(temExtremas(temperaturas));
+console.log('Temperaturas superiores a la media:');
+console.log(temSupMedia(temperaturas));
+console.log('Temperaturas ºC:');
+console.log(temperaturas);
+console.log('Temperaturas ºF:');
+console.log(tempCtoF(temperaturas));
