@@ -18,16 +18,24 @@ const addProduct = (name,quantity,price)=>{
 
 //eliminar producto
 const delProduct = ()=>{
-
+  inventario.pop();
 }
 
 //filtrar producto por precio mayor al dado
-const selectProductByPrice = (price)=>{
-
+const  selectProductByPrice= (price)=>{
+  const filtrados = inventario.filter(el => el.precio>price);
+  return filtrados;
 }
 //ordenar productos por cantidad mayor a menor
 const orderProductQuantity = ()=>{
-
+  inventario.sort((a,b)=>{
+    return b.cantidad - a.cantidad;
+  })
 }
+addProduct('pantalla',45,124);
+console.log(selectProductByPrice(50));
+orderProductQuantity()
+console.log(inventario);
 
 //2️⃣ Análisis de Notas de Estudiantes
+
