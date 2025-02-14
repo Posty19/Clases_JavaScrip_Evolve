@@ -77,3 +77,37 @@ console.log(filtrarNota(estudiantes));
 console.log(notaMedia(estudiantes));
 orderAlumnosNota();
 console.log(estudiantes);
+
+//3️⃣ Historial de Transacciones Bancarias
+
+const transacciones = [200, -50, -100, 350, -20];
+
+//sumar el saldo total
+
+const saldoTotal = (movimientos) => {
+  let total = 0;
+  movimientos.forEach((el) => {
+    total += el;
+  });
+  return total;
+};
+
+//transacciones ñayores a 100
+
+const altasTranasacciones = (movimientos) => {
+  return movimientos.filter((el) => el > 100);
+};
+
+//invertir el osrden de las transacciones sin reverse
+const revertirTransacciones = (movimientos)=>{
+  let revertidos = []
+  movimientos.forEach(el => {
+    revertidos.unshift(el);
+  });
+  return revertidos;
+}
+
+console.log("*************************** Ej3 ***************************");
+console.log(saldoTotal(transacciones));
+console.log(altasTranasacciones(transacciones));
+console.log(revertirTransacciones(transacciones));
