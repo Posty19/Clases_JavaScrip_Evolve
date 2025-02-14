@@ -111,3 +111,65 @@ console.log("*************************** Ej3 ***************************");
 console.log(saldoTotal(transacciones));
 console.log(altasTranasacciones(transacciones));
 console.log(revertirTransacciones(transacciones));
+
+//4️⃣ Gestión de Tareas (To-Do List)
+
+const tareas = [
+  { tarea: 'Comprar leche', completada: false },
+  { tarea: 'Estudiar JavaScript', completada: true }
+];
+
+//Añadir tareas
+const addTask = (task, complete) => {
+  const taskCopleted = {
+    tarea: task,
+    completada:complete,
+  };  tareas.push(taskCopleted);
+};
+
+//Marcar tareas como completadas
+const completeTask = (tasks,taskName) => {
+  tasks.forEach(el => {
+      if(el.tarea===taskName){
+        el.completada = true;
+      }
+  });
+  return tasks;
+ /*  tareas = tasks.map( el =>{
+    if(el.tarea===taskName){
+      el.completada = true;
+    }
+    return el;
+  }); */
+} 
+//filtrar completadas e incompletas
+const completedTaskFilter = (tasks,compTF) => {
+  const filtered = tasks.filter(el =>{
+    if (el.completada === compTF){
+      return el;
+    }
+  });
+  return filtered;
+}
+
+//conatat tareas pendientes
+
+const pendingTask = (tasks) => {
+  let pending=0;
+  tasks.forEach(el => {
+    el.completada === false ? pending++ : '';
+  });
+  return pending;
+}
+
+console.log("*************************** Ej4 ***************************");
+addTask('Limpiar baños',false)
+completeTask(tareas,'Comprar leche');
+
+console.log('tareas completadas');
+console.log(completedTaskFilter(tareas,true));
+console.log('tareas no completadas');
+console.log(completedTaskFilter(tareas,false));
+console.log(`total tareas no completadas ${pendingTask(tareas)}`);
+console.log('Resultado final de tareas');
+console.log(tareas);
