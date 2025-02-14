@@ -435,9 +435,47 @@ const sortMostLiked = (posts) => {
   return ordenados;
 };
 
-console.log("*************************** Ej10 ***************************");
+console.log("*************************** Ej11 ***************************");
 console.log(`total de likes es:${calcLikes(publicaciones)}`);
 console.log(`posts con mas de 100 likes:`);
 console.log(postMostLiked(publicaciones));
 console.log(`posts ordenados por likes es:`);
 console.log(sortMostLiked(publicaciones));
+
+//+++++++++++++++++++++++++++++++++++++++++++1️⃣2️⃣ Sistema de Gestión de Alumnos (Operador Spread + Objetos)
+
+const alumnos = [
+  { nombre: 'Juan', edad: 20 },
+  { nombre: 'Ana', edad: 17 }
+];
+
+//añadir alumno
+
+const addstudent = (name, age) => {
+  const student = {
+    nombre: name,
+    edad: age,
+  };
+  alumnos.push(student);
+};
+
+//modificar alumno especifico con spread
+
+const editStudent = (name,age) => {
+  
+};
+
+//alumnos con mas de 18 años
+
+const oldStudents = (students) => {
+  const filtrados = students.filter((el) => el.edad > 18);
+  return filtrados;
+};
+
+console.log("*************************** Ej12 ***************************");
+addstudent('joselito',21)
+console.log(alumnos);
+
+
+console.log(`alumnos mayores de edad:`);
+console.log(oldStudents(alumnos));
