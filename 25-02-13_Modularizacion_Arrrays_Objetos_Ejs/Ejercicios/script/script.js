@@ -180,7 +180,28 @@ console.log(tareas);
 const nombres = ["Ana", "Juan", "Pedro", "Andrés"];
 
 //pasar todo a mayusculas
+const mayusNames = (names)=>{
+  const upperNames = names.map(el => {
+    return el.toUpperCase();
+  });
+  return upperNames;
+}
 
 //filtrar nombres que comienzen por a
 
+const aNames = (names)=>{
+  const upperNames = names.filter(el => {
+    if (el[0] === 'a'||el[0] === 'A'){
+      return el;
+    }
+      
+  });
+  return upperNames;
+}
+
 //ordenar alfabeticamente
+nombres.sort();
+
+console.log("*************************** Ej5 ***************************");
+console.log(mayusNames(nombres));
+console.log(aNames(nombres));
