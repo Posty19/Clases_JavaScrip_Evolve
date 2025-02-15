@@ -532,3 +532,57 @@ console.log(cola);
 console.log(`el proximo cliente es: ${seeNextClient(cola)}`);
 
 console.log(`cantidad total de la cola: ${seeTotalClients(cola)}`);
+
+//+++++++++++++++++++++++++++++++++++++++++++1️⃣5️⃣ Gestión de Inventario de Productos (Avanzado con Spread)
+
+let inventario1 = [
+  { nombre: 'Laptop', cantidad: 10, precio: 800 },
+  { nombre: 'Teclado', cantidad: 20, precio: 30 },
+  { nombre: 'mocrofono', cantidad: 0, precio: 40 },
+  { nombre: 'Auriculares', cantidad: 0, precio: 90 },
+];
+const inventario2 = [
+  { nombre: 'Ratón', cantidad: 15, precio: 10 },
+  { nombre: 'Monitor', cantidad: 5, precio: 200 }
+];
+
+//añade nuevos elementos con spread sin modificar el original
+
+const addItem = (stock,item) => newStock = [...stock,item] ;
+
+//actualiza el precio de un producto en concreto
+
+const uptateItemPrice = (stock,itemName,price) => {
+  stock.forEach(el => {
+    if(el.nombre == itemName){
+      el.precio = price;
+    }
+  });
+} 
+
+//elimina productos sin stock
+
+const dellUnstokItems = (stock) => {
+  const newStock=[]
+  stock.forEach(el => {
+    if(el.cantidad > 0){
+      newStock.push(el);
+    }
+  });
+  return newStock;
+} 
+
+//combina dos inventarios diferente sin duplicados
+
+const concatSoks = (stock1,stock2) => finalStock = new Set([...stock1,...stock2]) ;
+
+console.log("*************************** Ej15 ***************************");
+
+console.log(addItem(inventario1,{ nombre: 'Monitor', cantidad: 5, precio: 200 }));
+
+uptateItemPrice(inventario1,'Laptop',1500);
+console.log(inventario1);
+inventario1 = dellUnstokItems(inventario1);
+console.log(inventario1);
+
+console.log(concatSoks(inventario1,inventario2));
