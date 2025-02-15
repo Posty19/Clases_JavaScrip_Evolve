@@ -500,3 +500,35 @@ console.log("*************************** Ej13 ***************************");
 console.log(arrText);
 console.log(palabras5Char(arrText));
 console.log(sortStrArr(arrText));
+
+//+++++++++++++++++++++++++++++++++++++++++++1️⃣4️⃣ Simulación de una Cola de Atención
+
+const cola = ['Juan', 'Ana', 'Carlos'];
+
+// añade clientes al final de la cola
+
+const addClient = (queue,client) => queue.push(client);
+
+//atiende clientes con shift
+
+const attendClient = queue  => queue.shift();
+
+//muestra siguinte cliente sin eliminarlo
+
+const seeNextClient = queue  =>  queue[0];
+
+//cuenta total de clientes
+
+const seeTotalClients = queue  =>  queue.length;
+
+console.log("*************************** Ej14 ***************************");
+
+addClient(cola,'juan')
+console.log(cola);
+
+attendClient(cola)
+console.log(cola);
+
+console.log(`el proximo cliente es: ${seeNextClient(cola)}`);
+
+console.log(`cantidad total de la cola: ${seeTotalClients(cola)}`);
