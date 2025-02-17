@@ -375,7 +375,6 @@ const dellParticipant = (participants, name) => {
     el !== name ? participants2.push(el) : "";
   });
   participantes = participants2;
-  return participants2;
 };
 
 //filtrar participantes con letra especifica
