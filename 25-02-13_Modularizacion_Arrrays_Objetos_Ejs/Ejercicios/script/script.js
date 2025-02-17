@@ -461,7 +461,8 @@ const addstudent = (name, age) => {
 //modificar alumno especifico con spread
 
 const editStudent = (name,age) => {
-  
+  const alumno = [{ nombre: name, edad: age }];
+  return [...alumnos,...alumno]
 };
 
 //alumnos con mas de 18 años
