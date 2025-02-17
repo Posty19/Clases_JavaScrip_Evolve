@@ -444,8 +444,8 @@ console.log(sortMostLiked(publicaciones));
 //+++++++++++++++++++++++++++++++++++++++++++1️⃣2️⃣ Sistema de Gestión de Alumnos (Operador Spread + Objetos)
 
 const alumnos = [
-  { nombre: 'Juan', edad: 20 },
-  { nombre: 'Ana', edad: 17 }
+  { nombre: "Juan", edad: 20 },
+  { nombre: "Ana", edad: 17 },
 ];
 
 //añadir alumno
@@ -460,9 +460,9 @@ const addstudent = (name, age) => {
 
 //modificar alumno especifico con spread
 
-const editStudent = (name,age) => {
+const editStudent = (name, age) => {
   const alumno = [{ nombre: name, edad: age }];
-  return [...alumnos,...alumno]
+  return [...alumnos, ...alumno];
 };
 
 //alumnos con mas de 18 años
@@ -473,28 +473,27 @@ const oldStudents = (students) => {
 };
 
 console.log("*************************** Ej12 ***************************");
-addstudent('joselito',21)
+addstudent("joselito", 21);
 console.log(alumnos);
-
 
 console.log(`alumnos mayores de edad:`);
 console.log(oldStudents(alumnos));
 
 //+++++++++++++++++++++++++++++++++++++++++++1️⃣3️⃣ Análisis de Palabras en un Texto
 
-const texto = 'El sol me acaricia con sus rallos';
+const texto = "El sol me acaricia con sus rallos";
 
 //testo a array
-const toArray = frase => frase.split(' ');
+const toArray = (frase) => frase.split(" ");
 const arrText = toArray(texto);
 
 //filtra palabras de mas de 5 caracteres
 
-const palabras5Char = arr => arr.filter(el=>el.length>5);
+const palabras5Char = (arr) => arr.filter((el) => el.length > 5);
 
 //ordena port longitud;
 
-const sortStrArr = strArr => strArr.sort((a,b)=>b.length-a.length);
+const sortStrArr = (strArr) => strArr.sort((a, b) => b.length - a.length);
 
 console.log("*************************** Ej13 ***************************");
 console.log(arrText);
@@ -503,30 +502,30 @@ console.log(sortStrArr(arrText));
 
 //+++++++++++++++++++++++++++++++++++++++++++1️⃣4️⃣ Simulación de una Cola de Atención
 
-const cola = ['Juan', 'Ana', 'Carlos'];
+const cola = ["Juan", "Ana", "Carlos"];
 
 // añade clientes al final de la cola
 
-const addClient = (queue,client) => queue.push(client);
+const addClient = (queue, client) => queue.push(client);
 
 //atiende clientes con shift
 
-const attendClient = queue  => queue.shift();
+const attendClient = (queue) => queue.shift();
 
 //muestra siguinte cliente sin eliminarlo
 
-const seeNextClient = queue  =>  queue[0];
+const seeNextClient = (queue) => queue[0];
 
 //cuenta total de clientes
 
-const seeTotalClients = queue  =>  queue.length;
+const seeTotalClients = (queue) => queue.length;
 
 console.log("*************************** Ej14 ***************************");
 
-addClient(cola,'juan')
+addClient(cola, "juan");
 console.log(cola);
 
-attendClient(cola)
+attendClient(cola);
 console.log(cola);
 
 console.log(`el proximo cliente es: ${seeNextClient(cola)}`);
@@ -536,53 +535,50 @@ console.log(`cantidad total de la cola: ${seeTotalClients(cola)}`);
 //+++++++++++++++++++++++++++++++++++++++++++1️⃣5️⃣ Gestión de Inventario de Productos (Avanzado con Spread)
 
 let inventario1 = [
-  { nombre: 'Laptop', cantidad: 10, precio: 800 },
-  { nombre: 'Teclado', cantidad: 20, precio: 30 },
-  { nombre: 'mocrofono', cantidad: 0, precio: 40 },
-  { nombre: 'Auriculares', cantidad: 0, precio: 90 },
+  { nombre: "Laptop", cantidad: 10, precio: 800 },
+  { nombre: "Teclado", cantidad: 20, precio: 30 },
+  { nombre: "Microfono", cantidad: 0, precio: 40 },
+  { nombre: "Auriculares", cantidad: 0, precio: 90 },
 ];
 const inventario2 = [
-  { nombre: 'Ratón', cantidad: 15, precio: 10 },
-  { nombre: 'Monitor', cantidad: 5, precio: 200 }
+  { nombre: "Ratón", cantidad: 15, precio: 10 },
+  { nombre: "Monitor", cantidad: 5, precio: 200 },
 ];
 
 //añade nuevos elementos con spread sin modificar el original
 
-const addItem = (stock,item) => newStock = [...stock,item] ;
+const addItem = (stock, item) => (newStock = [...stock, item]);
 
 //actualiza el precio de un producto en concreto
 
-const uptateItemPrice = (stock,itemName,price) => {
-  stock.forEach(el => {
-    if(el.nombre == itemName){
+const uptateItemPrice = (stock, itemName, price) => {
+  stock.forEach((el) => {
+    if (el.nombre == itemName) {
       el.precio = price;
     }
   });
-} 
+};
 
 //elimina productos sin stock
 
 const dellUnstokItems = (stock) => {
-  const newStock=[]
-  stock.forEach(el => {
-    if(el.cantidad > 0){
-      newStock.push(el);
-    }
-  });
-  return newStock;
-} 
+  return stock.filter((el) => el.cantidad > 0);
+};
 
 //combina dos inventarios diferente sin duplicados
 
-const concatSoks = (stock1,stock2) => finalStock = new Set([...stock1,...stock2]) ;
+const concatSoks = (stock1, stock2) =>
+  (finalStock = new Set([...stock1, ...stock2]));
 
 console.log("*************************** Ej15 ***************************");
 
-console.log(addItem(inventario1,{ nombre: 'Monitor', cantidad: 5, precio: 200 }));
+console.log(
+  addItem(inventario1, { nombre: "Monitor", cantidad: 5, precio: 200 })
+);
 
-uptateItemPrice(inventario1,'Laptop',1500);
+uptateItemPrice(inventario1, "Laptop", 1500);
 console.log(inventario1);
 inventario1 = dellUnstokItems(inventario1);
 console.log(inventario1);
 
-console.log(concatSoks(inventario1,inventario2));
+console.log(concatSoks(inventario1, inventario2));
