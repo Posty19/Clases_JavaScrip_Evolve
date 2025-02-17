@@ -485,7 +485,7 @@ console.log(oldStudents(alumnos));
 const texto = 'El sol me acaricia con sus rallos';
 
 //testo a array
-const toArray = frase => texto.split(' ');
+const toArray = () => texto.split(' ');
 const arrText = toArray(texto);
 
 //filtra palabras de mas de 5 caracteres
