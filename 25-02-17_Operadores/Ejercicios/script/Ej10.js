@@ -7,11 +7,11 @@ Agregue cada estudiante como una propiedad del objeto con un valor booleano (tru
 Devuelva el objeto resultante. */
 
 const names = ["paco", "ana", "lucia"];
-const asistencia = [];
+const asistencia = {};
 
 const agregar = (nombres) =>
-  nombres.forEach((el) => {
-    asistencia.push({ nombre: el, asistecia: true });
+  nombres.forEach((el,key) => {
+    asistencia[el] = key%2===0;
   });
 
 agregar(names);
