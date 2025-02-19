@@ -18,21 +18,13 @@ const valPass = (password) => {
   let mayus = false;
   let num = false;
 
+  const ABC = abc.toUpperCase();
   for (let i = 0; i < password.length; i++) {
     for (let j = 0; j < abc.length; j++) {
       password[i] == abc[j] ? (minus = true) : "";
-    }
-  }
-  const ABC = abc.toUpperCase();
-  for (let i = 0; i < password.length; i++) {
-    for (let j = 0; j < ABC.length; j++) {
       password[i] == ABC[j] ? (mayus = true) : "";
     }
-  }
-  for (let i = 0; i < password.length; i++) {
-    for (let j = 0; j < nums.length; j++) {
-      password[i] == nums[j] ? (num = true) : "";
-    }
+    password[i] <= 9 ? (num = true) : "";
   }
   return minus && mayus && num ? true : false;
 };
