@@ -9,11 +9,8 @@ Devuelva el array modificado. */
 let nums = [2, 3, 9, 3, -5, -6, 1, 78, -56, 100];
 
 const delnegatives = (nums) => {
-  const nums2 = [];
-  nums.forEach((el) => {
-    el < 0 ? nums2.push(0) : nums2.push(el);
-  });
-  return nums2
+  nums = nums.map((el) => el < 0 ? (le = 0) : el);
+  return nums;
 };
 
 nums = delnegatives(nums);
