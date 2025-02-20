@@ -4,6 +4,7 @@ Dado un array con varios nombres completos, crear una función que devuelva un n
 
 const nombres = ["Dniel", "Jaime", "lucia", "ana", "pedro"];
 
-const iniciales = (names) => names.map((el) => el[0].toUpperCase());
+const iniciales = (names) =>
+  names.map((el) => el[0].toUpperCase() + el.slice(1));
 
 console.log(iniciales(nombres));
