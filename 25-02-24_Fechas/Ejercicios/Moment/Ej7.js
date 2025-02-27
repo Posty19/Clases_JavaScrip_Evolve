@@ -9,4 +9,5 @@ let date = moment("01-06-2025", "DD-MM-YYYY");
 date = date.add(7, "days");
 date = date.add(3, "hours");
 
+console.log(date.isBefore(moment("10-06-2025", "DD-MM-YYYY")));
 
