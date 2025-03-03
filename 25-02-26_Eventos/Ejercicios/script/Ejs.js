@@ -76,33 +76,74 @@ window.addEventListener('resize',e=>{
 
 Enunciado: Crea una página con mucho contenido. Usa el evento scroll para mostrar un mensaje cada vez que el usuario empuje la barra de desplazamiento de la página hacia abajo. Puedes mostrar un simple mensaje como "Desplazamiento detectado". */
 
-
+window.addEventListener('scroll',e=>{
+    document.getElementById('ej9Result').textContent = "Desplazamiento detectado"
+})
 
 /**10. Manejo de múltiples botones con addEventListener 🔘
 
 Enunciado: Crea varios botones en tu página. Utiliza addEventListener para asignar el evento click a cada uno de ellos. Cada vez que el usuario haga clic en un botón, muestra un mensaje de alert indicando el nombre del botón presionado (por ejemplo, "Botón 1", "Botón 2", etc.). */
 
+const btns = document.querySelectorAll('input[type="button"]');
+
+btns.forEach(btn => {
+    btn.addEventListener('click', e=>{
+        document.getElementById('ej10Result').textContent = e.target.name;
+    })
+});
 
 /**11. Múltiples eventos en un div con addEventListener 🎨
 
 Enunciado: Crea un div en la página y usa el evento mouseenter para cambiar el color de fondo a verde cuando el ratón entre en el área del div, y usa el evento mouseleave para devolver el color de fondo a su estado original cuando el ratón salga del área. */
 
+document.getElementById('ej11').addEventListener('mouseenter',e=>{
+    e.target.style.backgroundColor='green';
+})
+document.getElementById('ej11').addEventListener('mouseleave',e=>{
+    e.target.style.backgroundColor='#fff';
+})
 
 /**12. Detectar teclas presionadas con keydown y keyup ⌨️
 
 Enunciado: Crea un campo de texto en tu página. Usa los eventos keydown y keyup para mostrar un mensaje de alert cada vez que el usuario presione o suelte una tecla en el campo de texto. */
 
+document.getElementById('ej12Imput').addEventListener('keydown',e=>{
+    document.getElementById('ej12span').textContent = 'Tecla presionada';
+})
+document.getElementById('ej12Imput').addEventListener('keyup',e=>{
+    document.getElementById('ej12span').textContent = 'Tecla soltada';
+})
 
 /**13. Cambiar el color de fondo de un elemento con mouseover y mouseout 🖱️
 
 Enunciado: Crea un div y usa los eventos mouseover y mouseout para cambiar el color de fondo del div cuando el ratón entre o salga de él. El fondo puede cambiar a un color específico al pasar el ratón y volver al color original al quitarlo. */
 
+//      ********************** no es igula que el 11?
 
 /**14. Evitar que un formulario se envíe con submit 📝
 
 Enunciado: Crea un formulario con un campo de texto y un botón de envío. Usa el evento submit para evitar que el formulario se envíe si el campo de texto está vacío, mostrando un mensaje que indique que el campo es obligatorio. */
 
+document.getElementById('ej14form').addEventListener('submit',e=>{
+    e.preventDefault();
+    const imputText = document.getElementById('ej14Imput').value;
+
+    if (imputText!==''){   
+        document.getElementById('ej14form').submit()
+    }else{
+        document.getElementById('ej14span').textContent = 'El campo no puede quedar vacio'
+        
+    }
+
+})
 
 /**15. Deshabilitar un botón con el evento input en un campo de texto ⬇️
 
 Enunciado: Crea un campo de texto y un botón en la página. Usa el evento input para deshabilitar el botón si el campo de texto está vacío, y habilitarlo si el campo contiene texto. Esto evita que el usuario haga clic en el botón cuando el campo está vacío. */
+
+document.getElementById('ej15Imput').addEventListener('input',e=>{
+    document.getElementById('ej15submit').disabled=true;
+})
+document.getElementById('ej15Imput').addEventListener('blur',e=>{
+    document.getElementById('ej15submit').disabled=false;
+})

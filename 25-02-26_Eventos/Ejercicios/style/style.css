@@ -6,3 +6,10 @@ img{
     background-color: #afafaf;
     overflow: scroll;
 }
+
+#ej11{
+    margin: auto;
+    border: 1px solid black;
+    width: 200px;
+    height: 200px;
+}
