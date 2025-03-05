@@ -65,7 +65,7 @@ try {
   console.log("codigo ejecutado");
 }
 
-async function realizarPeticion2(url) {
+async function realizarPeticion2(url) { // const peticion = async()=>{}
   try {
     const response = await fetch(url);
     const data = await response.json();
